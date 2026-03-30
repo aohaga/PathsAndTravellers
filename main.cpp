@@ -6,12 +6,6 @@
 #include "traveller.h"
 #include "navigation.h"
 
-//A check for memory leaks. This can be removed when project is complete
-struct AtExit
-{
-	~AtExit() { _CrtDumpMemoryLeaks(); }
-} doAtExit;
-
 
 //The first two functions organize the nessecary steps for initializing path and traveller objects
 
@@ -71,21 +65,11 @@ int main() {
 
 	MakeATraveller(*Path_A, p2, "Hello from Traveller A");
 
-	//Process the lane to see if Traveller can reach goal
+	//Process lane to see if Traveller can reach goal
 	if (ProcessLane(Path_A, Direction::Positive) == true) {
 		std::cout << "Success" << std::endl;
 	}
 	
-
-	//Set Reports to console out
-	_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE);
-	_CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDOUT);
-	_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE);
-	_CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDOUT);
-	_CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
-	_CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDOUT);
-
-
 	return 0;
 
 };

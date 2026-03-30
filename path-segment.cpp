@@ -1,6 +1,6 @@
 #include "path-segment.h"
 
-//Begin Lane Definitions
+//Lane Definitions
 
 bool Lane::CheckForSpace() {
 	if (lane_queue.size() < traveller_maximum) { return true; }
@@ -12,7 +12,7 @@ void Lane::Transfer(Lane& to_lane) {
 	lane_queue.pop_front();
 }
 
-//Begin Path Segment Definitions
+//Path Segment Definitions
 
 //Constructor
 PathSegment::PathSegment(intersection& endpoint_a, intersection& endpoint_b, char id) 
